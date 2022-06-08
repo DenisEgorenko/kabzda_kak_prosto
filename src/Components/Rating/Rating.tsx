@@ -1,22 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type RatingPropsType = {
     value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 type StarPropsType = {
-    selected: boolean
+    selected: boolean,
+    setRaiting: ()=>void
 }
 
 
-function Rating(props: RatingPropsType) {
+function Rating() {
+
+    const [raiting, setRaiting] = useState(1)
+
+    const handleRaiting = (raiting: number) => setRaiting(raiting)
+
     return (
         <div>
-            <Star selected={props.value > 0}/>
-            <Star selected={props.value > 1}/>
-            <Star selected={props.value > 2}/>
-            <Star selected={props.value > 3}/>
-            <Star selected={props.value > 4}/>
+            <Star setRaiting={()=>handleRaiting(1)} selected={raiting >= 1}/>
+            <Star setRaiting={()=>handleRaiting(2)} selected={raiting >= 2}/>
+            <Star setRaiting={()=>handleRaiting(3)} selected={raiting >= 3}/>
+            <Star setRaiting={()=>handleRaiting(4)} selected={raiting >= 4}/>
+            <Star setRaiting={()=>handleRaiting(5)} selected={raiting >= 5}/>
         </div>
     );
 
@@ -25,7 +31,7 @@ function Rating(props: RatingPropsType) {
 
 function Star(props: StarPropsType) {
     return (
-        (props.selected == true) ? <span><b>star </b></span> : <span>star </span>
+        (props.selected == true) ? <span onClick={props.setRaiting}><b>star </b></span> : <span onClick={props.setRaiting}>star </span>
     );
 }
 
