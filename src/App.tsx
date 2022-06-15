@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./Components/Accordion/Accordion";
-import Rating from "./Components/Rating/Rating";
+import UncontrolledRating from "./Components/Rating/UncontrolledRating";
 import OnOff from './Components/OnOff/OnOff';
+import Rating, {ratingValueType} from './Components/Rating/Rating';
+import UncontrolledAccordion from './Components/Accordion/UncontrolledAccordion';
+import UncontrolledOnOff from './Components/OnOff/UncontrolledOnOff';
 
 
 function App() {
@@ -11,24 +14,43 @@ function App() {
     const [onOff2, setOnOff2] = useState(false)
     const [onOff3, setOnOff3] = useState(false)
 
+
+    let [rating, setRating] = useState<ratingValueType>(2)
+    let [collapsed, setCollapsed] = useState<boolean>(false)
+
+
     return (
-        <div>
+        <div className={'wrapper'}>
             <PageTitle title={"This is App component"}/>
             <PageTitle title={"My friends"}/>
-            <Accordion titleValue={"Menu"}/>
-            <Accordion titleValue={"Sub Menu"}/>
 
 
+            {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
+            {/*<UncontrolledAccordion titleValue={"Sub Menu"}/>*/}
 
-            <Rating/>
-            <Rating/>
-            <Rating/>
-            <Rating/>
-            <Rating/>
+            <Accordion
+                titleValue={'Controlled Accordion'}
+                collapsed={collapsed}
+                setCollapsed={setCollapsed}
+            />
 
-            <OnOff on={onOff1} setOnOff={setOnOff1}/>
-            <OnOff on={onOff2} setOnOff={setOnOff2}/>
-            <OnOff on={onOff3} setOnOff={setOnOff3}/>
+
+            <Rating value = {rating} setRating = {setRating}/>
+
+
+            {/*<UncontrolledOnOff/>*/}
+
+            {/*<UncontrolledRating/>*/}
+            {/*<UncontrolledRating/>*/}
+            {/*<UncontrolledRating/>*/}
+            {/*<UncontrolledRating/>*/}
+            {/*<UncontrolledRating/>*/}
+
+            <div className={'onoff'}>
+                <OnOff on={onOff1} setOnOff={setOnOff1}/>
+                <OnOff on={onOff2} setOnOff={setOnOff2}/>
+                <OnOff on={onOff3} setOnOff={setOnOff3}/>
+            </div>
         </div>
     );
 }
