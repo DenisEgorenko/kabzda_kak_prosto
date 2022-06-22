@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-}
+type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
 type StarPropsType = {
     selected: boolean,
     setRating: () => void
 }
 
+type RatingPropsType = {
+    defaultValue?: RatingValueType
+}
 
-function UncontrolledRating() {
 
-    const [rating, setRating] = useState(1)
 
-    const handleRating = (rating: RatingPropsType["value"]) => setRating(rating)
+function UncontrolledRating(props: RatingPropsType) {
+
+    const [rating, setRating] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
+
+    const handleRating = (rating: RatingValueType) => setRating(rating)
 
     return (
         <div>

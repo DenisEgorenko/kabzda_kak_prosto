@@ -22,6 +22,7 @@ function Rating(props: RatingPropsType) {
             <Star setRating={()=>props.setRating(3)} selected={props.value >= 3}/>
             <Star setRating={()=>props.setRating(4)} selected={props.value >= 4}/>
             <Star setRating={()=>props.setRating(5)} selected={props.value >= 5}/>
+
         </div>
     );
 
