@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./Components/Accordion/Accordion";
-import UncontrolledRating from "./Components/Rating/UncontrolledRating";
+import Accordion from './Components/Accordion/Accordion';
+import UncontrolledRating from './Components/Rating/UncontrolledRating';
 import OnOff from './Components/OnOff/OnOff';
 import Rating, {ratingValueType} from './Components/Rating/Rating';
 import UncontrolledAccordion from './Components/Accordion/UncontrolledAccordion';
@@ -18,11 +18,17 @@ function App() {
     let [rating, setRating] = useState<ratingValueType>(2)
     let [collapsed, setCollapsed] = useState<boolean>(false)
 
+    let [accordionItem, setAccordionItem] = useState([
+            {title: '1', id: '1', onClick: (id: string) => alert(id)},
+            {title: '2', id: '2', onClick: (id: string) => alert(id)},
+            {title: '3', id: '3', onClick: (id: string) => alert(id)}
+        ]
+    )
 
     return (
         <div className={'wrapper'}>
-            <PageTitle title={"This is App component"}/>
-            <PageTitle title={"My friends"}/>
+            <PageTitle title={'This is App component'}/>
+            <PageTitle title={'My friends'}/>
 
 
             {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
@@ -32,10 +38,11 @@ function App() {
                 titleValue={'Controlled Accordion'}
                 collapsed={collapsed}
                 setCollapsed={setCollapsed}
+                items={accordionItem}
             />
 
 
-            <Rating value = {rating} setRating = {setRating}/>
+            {/*<Rating value = {rating} setRating = {setRating}/>*/}
 
 
             {/*<UncontrolledOnOff/>*/}
@@ -46,22 +53,21 @@ function App() {
             {/*<UncontrolledRating/>*/}
             {/*<UncontrolledRating/>*/}
 
-            <div className={'onoff'}>
-                <OnOff on={onOff1} setOnOff={setOnOff1}/>
-                <OnOff on={onOff2} setOnOff={setOnOff2}/>
-                <OnOff on={onOff3} setOnOff={setOnOff3}/>
-            </div>
+            {/*<div className={'onoff'}>*/}
+            {/*    <OnOff on={onOff1} setOnOff={setOnOff1}/>*/}
+            {/*    <OnOff on={onOff2} setOnOff={setOnOff2}/>*/}
+            {/*    <OnOff on={onOff3} setOnOff={setOnOff3}/>*/}
+            {/*</div>*/}
         </div>
     );
 }
 
 
-function PageTitle(props:any) {
+function PageTitle(props: any) {
     return (
         <div>{props.title}</div>
     );
 }
-
 
 
 export default App;
