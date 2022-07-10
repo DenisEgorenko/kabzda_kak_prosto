@@ -10,13 +10,17 @@ export default {
 
 const Template: ComponentStory<typeof Select> = (args) => {
 
-    const [items, setItems] = useState(['Moscow', 'Kiyv', 'Minsk'])
-    const [selected, setSelected] = useState('Kiyv')
+    const [items, setItems] = useState([
+        {value: '1', title: 'Moscow'},
+        {value: '2', title: 'Kiyv'},
+        {value: '3', title: 'Minsk'}
+    ])
+    const [value, setValue] = useState('1')
 
     return <Select
         items={items}
-        selected={selected}
-        setSelected={setSelected}
+        value={value}
+        setValue={setValue}
     />
 
 }

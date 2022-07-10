@@ -1,0 +1,19 @@
+.selectedItem{
+    border: 1px solid #afafaf;
+    background-color: #fafafa;
+    border-radius: 5px;
+    display: block;
+    width: 100px;
+    padding: 5px;
+}
+
+.listItems {
+    width: 100px;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+}
+
+.itemHovered{
+    border-radius: 5px;
+    background-color: #1ea7fd;
+}
