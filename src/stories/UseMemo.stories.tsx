@@ -92,7 +92,7 @@ const BooksSecret = (props: { books: Array<string>, addBook: () => void, }) => {
 }
 const Books = React.memo(BooksSecret)
 
-export const likeUseCallback = () => {
+export const LikeUseCallback = () => {
     console.log('likeUseCallback')
 
     const [counter, setCounter] = useState(0)

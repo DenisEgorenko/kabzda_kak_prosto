@@ -18,7 +18,7 @@ export const Rating3 = () => <Rating value={3} setRating={callback} />
 export const Rating4 = () => <Rating value={4} setRating={callback} />
 export const Rating5 = () => <Rating value={5} setRating={callback} />
 
-export const changeRating = () => {
+export const ChangeRating = () => {
 
     const [rating, setRating] = useState<ratingValueType>(5)
 
